@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+     google.load('visualization', '1', {'packages': ['geochart']});
+     google.setOnLoadCallback(drawMarkersMap);
+
+      function drawMarkersMap() 
+	  {
+	  var data = google.visualization.arrayToDataTable($tag);
+
+      var options = {
+        region: ['US'],
+        displayMode: 'text',
+        colorAxis: {colors: ['red',  'green']},
+    	backgroundColor: {fill:'#3399FF',stroke:'#FFFFFF' ,strokeWidth:0},
+    	sizeAxis:{minValue: 0, maxSize: 25}
+      }; 
+
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    };
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
